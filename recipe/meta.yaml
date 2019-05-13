@@ -12,13 +12,14 @@ source:
 build:
   number: 0
   skip: true  # [win]
-  script: "HDF5_DIR={{PREFIX}} {{ PYTHON }} -m pip install . --no-deps -vv"
+  # script: "HDF5_DIR={{PREFIX}} {{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   build:
     - {{ compiler('c') }}
   host:
     - cython >=0.19
+    - lz4
     - python
     - pip
     - numpy >=1.6.1
@@ -36,6 +37,7 @@ test:
     - pytest
   commands:
     - pytest --pyargs bitshuffle
+    - test -f $PREFIX/lib/bitshuffle.a
 
 about:
   home: https://github.com/kiyo-masui/bitshuffle
