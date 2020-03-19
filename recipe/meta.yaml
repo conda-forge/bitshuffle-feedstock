@@ -12,7 +12,7 @@ source:
     - patch/0001-Fix-plugin-tests-for-newer-h5py.patch
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win]
 
 requirements:
