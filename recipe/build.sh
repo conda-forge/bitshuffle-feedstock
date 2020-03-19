@@ -5,7 +5,7 @@ set -ex
 tmp_obj=bitshuffle_default_tmp.o
 dst_obj=bitshuffle_default.o
 
-${CC:-gcc} $EXTRA_CFLAGS -std=c99 -I$PREFIX/include -O3 -DNDEBUG -fPIC -c \
+${CC:-gcc} $CFLAGS $EXTRA_CFLAGS -std=c99 -I$PREFIX/include -DNDEBUG -c \
   "src/bitshuffle_core.c" \
   "src/bitshuffle.c" \
   "src/iochain.c"
