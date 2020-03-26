@@ -48,7 +48,7 @@ about:
   license_family: MIT
   license_file: LICENSE
   description: |
-    Bitshuffle is an algorithm that rearranges typed, binary data for improving compression, 
+    Bitshuffle is an algorithm that rearranges typed, binary data for improving compression,
     as well as a python/C package that implements this algorithm within the Numpy framework.
   doc_url: https://github.com/kiyo-masui/bitshuffle
   dev_url: https://github.com/kiyo-masui/bitshuffle
@@ -57,3 +57,4 @@ extra:
   recipe-maintainers:
     - xmnlab
     - cpcloud
+    - anthchirp
