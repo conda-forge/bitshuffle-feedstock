@@ -13,7 +13,7 @@ source:
     - patch/0002-Fix-compilation-flags.patch
 
 build:
-  number: 5
+  number: 6
   skip: true  # [win]
 
 requirements:
@@ -24,12 +24,12 @@ requirements:
     - lz4
     - python
     - pip
-    - numpy >=1.6.1
+    - numpy >=1.16
     - h5py
     - hdf5
   run:
     - python
-    - numpy >=1.6.1
+    - numpy >=1.16
     - h5py
     - hdf5
     - cython
