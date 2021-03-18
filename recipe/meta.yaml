@@ -13,7 +13,7 @@ source:
     - patch/0002-Fix-compilation-flags.patch
 
 build:
-  number: 8
+  number: 9
 
 requirements:
   build:
