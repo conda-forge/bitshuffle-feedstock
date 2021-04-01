@@ -11,10 +11,10 @@ source:
   patches:
     - patch/0001-Fix-plugin-tests-for-newer-h5py.patch
     - patch/0002-Fix-compilation-flags.patch
+    - patch/0003-Fix-tests-for-h5py-v3.patch
 
 build:
-  number: 8
-  skip: true  # [win]
+  number: 9
 
 requirements:
   build:

@@ -1,0 +1,56 @@
+From 35a18aef4a6bc982c6685c21ab41c3c8823eea98 Mon Sep 17 00:00:00 2001
+From: Rick Nitsche <rick@phas.ubc.ca>
+Date: Wed, 3 Mar 2021 14:42:50 -0800
+Subject: [PATCH] test: open h5 files in write mode
+
+Since h5py 3.0 the default is read only, which broke these tests.
+---
+ bitshuffle/tests/test_h5filter.py | 6 +++---
+ bitshuffle/tests/test_h5plugin.py | 3 +--
+ 2 files changed, 4 insertions(+), 5 deletions(-)
+
+diff --git a/bitshuffle/tests/test_h5filter.py b/bitshuffle/tests/test_h5filter.py
+index 6739b99..c7361f0 100644
+--- a/bitshuffle/tests/test_h5filter.py
++++ b/bitshuffle/tests/test_h5filter.py
+@@ -23,7 +23,7 @@ def test_filter(self):
+         dtype = np.int64
+         data = np.arange(shape[0])
+         fname = "tmp_test_filters.h5"
+-        f = h5py.File(fname)
++        f = h5py.File(fname, "w")
+         h5.create_dataset(f, b"range", shape, dtype, chunks,
+                 filter_pipeline=(32008, 32000),
+                 filter_flags=(h5z.FLAG_MANDATORY, h5z.FLAG_MANDATORY),
+@@ -43,7 +43,7 @@ def test_with_block_size(self):
+         dtype = np.int64
+         data = np.arange(shape[0])
+         fname = "tmp_test_filters.h5"
+-        f = h5py.File(fname)
++        f = h5py.File(fname, "w")
+         h5.create_dataset(f, b"range", shape, dtype, chunks,
+                 filter_pipeline=(32008, 32000),
+                 filter_flags=(h5z.FLAG_MANDATORY, h5z.FLAG_MANDATORY),
+@@ -65,7 +65,7 @@ def test_with_compression(self):
+         dtype = np.int64
+         data = np.arange(shape[0])
+         fname = "tmp_test_filters.h5"
+-        f = h5py.File(fname)
++        f = h5py.File(fname, "w")
+         h5.create_dataset(f, b"range", shape, dtype, chunks,
+                 filter_pipeline=(32008,),
+                 filter_flags=(h5z.FLAG_MANDATORY,),
+diff --git a/bitshuffle/tests/test_h5plugin.py b/bitshuffle/tests/test_h5plugin.py
+index 7cc195e..be0d09b 100644
+--- a/bitshuffle/tests/test_h5plugin.py
++++ b/bitshuffle/tests/test_h5plugin.py
+@@ -34,8 +34,7 @@ def test_plugins(self):
+         dtype = np.int64
+         data = np.arange(shape[0])
+         fname = "tmp_test_filters.h5"
+-        f = h5py.File(fname)
+-        f = h5py.File(fname)
++        f = h5py.File(fname, "w")
+         dset = f.create_dataset("range",
+                 shape=shape,
+                 dtype=dtype,
