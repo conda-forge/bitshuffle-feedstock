@@ -1,5 +1,5 @@
 {% set name = "bitshuffle" %}
-{% set version = "0.3.5" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://github.com/kiyo-masui/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: c3f4461d8013e3d9db0d58defec77b143164652de505a1fba3df088eaa19be2f
+  sha256: 1bc30e79d6b0812fa82ea53089f20b38bd403bfd101a015f496fd94d06354838
   patches:
     - patch/0001-Fix-plugin-tests-for-newer-h5py.patch
     - patch/0002-Fix-compilation-flags.patch
 
 build:
-  number: 8
+  number: 0
   skip: true  # [win]
 
 requirements:
@@ -43,7 +43,7 @@ test:
 
 about:
   home: https://github.com/kiyo-masui/bitshuffle
-  summary: "Filter for improving compression of typed binary data."
+  summary: Filter for improving compression of typed binary data.
   license: MIT
   license_family: MIT
   license_file: LICENSE
