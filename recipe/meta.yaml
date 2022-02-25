@@ -35,12 +35,13 @@ requirements:
 
 test:
   requires:
-    - pytest
     - pip
+    - pytest
   commands:
-    - pytest --pyargs bitshuffle
-    - test -f $PREFIX/lib/bitshuffle.a
     - pip check
+    - test -f $PREFIX/lib/bitshuffle.a
+    - find .
+    - pytest --pyargs tests
 
 about:
   home: https://github.com/kiyo-masui/bitshuffle
