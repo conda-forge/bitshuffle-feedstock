@@ -9,8 +9,7 @@ source:
   url: https://github.com/kiyo-masui/{{ name }}/archive/{{ version }}.tar.gz
   sha256: 1bc30e79d6b0812fa82ea53089f20b38bd403bfd101a015f496fd94d06354838
   patches:
-    - patch/0001-Fix-plugin-tests-for-newer-h5py.patch
-    - patch/0002-Fix-compilation-flags.patch
+    - patch/0001-Do-not-override-conda-forge-compilation-flags.patch
 
 build:
   number: 0
@@ -37,9 +36,11 @@ requirements:
 test:
   requires:
     - pytest
+    - pip
   commands:
     - pytest --pyargs bitshuffle
     - test -f $PREFIX/lib/bitshuffle.a
+    - pip check
 
 about:
   home: https://github.com/kiyo-masui/bitshuffle
