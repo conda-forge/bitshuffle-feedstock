@@ -20,18 +20,18 @@ requirements:
     - {{ compiler('c') }}
   host:
     - cython >=0.19
+    - h5py
+    - hdf5
     - lz4
-    - python
+    - numpy >=1.16
     - pip
-    - numpy >=1.16
-    - h5py
-    - hdf5
-  run:
     - python
-    - numpy >=1.16
+  run:
+    - cython
     - h5py
     - hdf5
-    - cython
+    - numpy >=1.16
+    - python
 
 test:
   source_files:
@@ -42,8 +42,7 @@ test:
   commands:
     - pip check
     - test -f $PREFIX/lib/bitshuffle.a
-    - find .
-    - pytest --pyargs tests
+    - pytest tests
 
 about:
   home: https://github.com/kiyo-masui/bitshuffle
