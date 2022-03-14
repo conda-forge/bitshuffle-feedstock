@@ -12,7 +12,7 @@ source:
     - patch/0001-Do-not-override-conda-forge-compilation-flags.patch
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
 
 requirements:
@@ -23,14 +23,14 @@ requirements:
     - h5py
     - hdf5
     - lz4
-    - numpy >=1.16
+    - numpy
     - pip
     - python
   run:
     - cython
     - h5py
     - hdf5
-    - numpy >=1.16
+    - {{ pin_compatible('numpy') }}
     - python
 
 test:
