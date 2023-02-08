@@ -1,5 +1,5 @@
 {% set name = "bitshuffle" %}
-{% set version = "0.4.2" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/kiyo-masui/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: c78cb5a2025a628e2873f7f746f6549d3c907ebe30cc8b9ba10c3bf76d04a316
+  sha256: bf818964d2a4b18465cfd3a0fc45d7c8317386965893a918601936769d7769ad
   patches:
     - patch/0001-Do-not-override-conda-forge-compilation-flags.patch
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
 
 requirements:
