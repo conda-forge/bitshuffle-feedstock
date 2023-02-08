@@ -220,6 +220,5 @@ Feedstock Maintainers
 =====================
 
 * [@anthchirp](https://github.com/anthchirp/)
-* [@cpcloud](https://github.com/cpcloud/)
 * [@xmnlab](https://github.com/xmnlab/)
 
