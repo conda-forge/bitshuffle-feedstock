@@ -29,6 +29,7 @@ requirements:
     - python
     - setuptools
   run:
+    - cython
     - h5py
     - hdf5
     - {{ pin_compatible('numpy') }}
