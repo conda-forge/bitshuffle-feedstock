@@ -1,0 +1,23 @@
+From 55ccdbd049926821be681b98076396995e321c06 Mon Sep 17 00:00:00 2001
+From: Nicholas Devenish <ndevenish@gmail.com>
+Date: Fri, 15 Nov 2024 21:13:54 +0000
+Subject: [PATCH 2/3] Remove runtime setuptools requirement
+
+This looks like unintentional?
+---
+ requirements.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/requirements.txt b/requirements.txt
+index 67294ff..cc07b2d 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1,5 +1,4 @@
+ # Order matters
+-setuptools>=0.7
+ Cython>=0.19
+ numpy>=1.24
+ h5py>=2.4.0
+-- 
+2.46.2
+
