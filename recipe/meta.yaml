@@ -10,9 +10,11 @@ source:
   sha256: b6d9369cab661c1253892e4755021fe6c3a29eee93a1764f0bb161015c4b7649
   patches:
     - patch/0001-Do-not-override-conda-forge-compilation-flags.patch
+    - patch/0002-Remove-runtime-setuptools-requirement.patch
+    - patch/0003-Remove-runtime-cython-dependency.patch
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
 
 requirements:
@@ -29,7 +31,6 @@ requirements:
     - python
     - setuptools
   run:
-    - cython
     - h5py
     - hdf5
     - python
