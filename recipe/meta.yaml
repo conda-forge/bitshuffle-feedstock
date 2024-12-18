@@ -14,7 +14,7 @@ source:
     - patch/0003-Remove-runtime-cython-dependency.patch
 
 build:
-  number: 4
+  number: 5
   skip: true  # [win]
 
 requirements:
