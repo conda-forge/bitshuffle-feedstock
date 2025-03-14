@@ -23,4 +23,6 @@ cp bitshuffle.a $PREFIX/lib/
 cp src/bitshuffle.h $PREFIX/include/bitshuffle.h
 cp src/bitshuffle_core.h $PREFIX/include/bitshuffle_core.h
 
+echo "Build platform: ${build_platform}"
+
 HDF5_DIR=$PREFIX $PYTHON -m pip install . --no-deps -vv
