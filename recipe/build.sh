@@ -23,7 +23,7 @@ cp bitshuffle.a $PREFIX/lib/
 cp src/bitshuffle.h $PREFIX/include/bitshuffle.h
 cp src/bitshuffle_core.h $PREFIX/include/bitshuffle_core.h
 
-if [[ $build_platform = osx-arm64 ]]; then
+if [[ $HOST == arm64-apple-* ]]; then
     # Bitshuffle forces usage of -mcpu=, defaulting to the invalid "native"
     export BITSHUFFLE_ARCH=apple-m1
 fi
