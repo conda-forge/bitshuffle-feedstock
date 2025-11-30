@@ -23,13 +23,11 @@ build:
 requirements:
   build:
     - if: build_platform != target_platform
-      then: python
-    - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
-    - if: build_platform != target_platform
-      then: cython
-    - if: build_platform != target_platform
-      then: numpy
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - cython
+        - numpy
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
   host:
@@ -47,17 +45,24 @@ requirements:
     - python
 
 tests:
-  - files:
+  - python:
+      imports:
+        - bitshuffle
+      pip_check: true
+  - package_contents:
+      files:
+        - lib/bitshuffle.a
+      include:
+        - bitshuffle.h
+        - bitshuffle_core.h
+  - script:
+      - pytest tests
+    files:
       source:
         - tests
     requirements:
       run:
-        - pip
         - pytest
-    script:
-      - pip check
-      - test -f $PREFIX/lib/bitshuffle.a
-      - pytest tests
 
 about:
   summary: Filter for improving compression of typed binary data.
