@@ -26,6 +26,12 @@ cp src/bitshuffle_core.h $PREFIX/include/bitshuffle_core.h
 if [[ $HOST == arm64-apple-* ]]; then
     # Bitshuffle forces usage of -mcpu=, defaulting to the invalid "native"
     export BITSHUFFLE_ARCH=apple-m1
+elif [[ $HOST == x86_64-apple-* ]]; then
+    # Bitshuffle forces usage of -march=, defaulting to "native", overwriting the conda-forge core2 value
+    export BITSHUFFLE_ARCH=core2
+elif [[ $HOST == x86_64-*-linux-* ]]; then
+    # Bitshuffle forces usage of -march=, defaulting to "native", overwriting the conda-forge nocona value
+    export BITSHUFFLE_ARCH=nocona
 fi
 
 HDF5_DIR=$PREFIX $PYTHON -m pip install . --no-deps -vv
